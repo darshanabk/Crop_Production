@@ -3,7 +3,7 @@ name: Generate Bronze Layer Data
 on:
   push:
     paths:
-      - bronzeLayer.py  # Trigger workflow when bronzeLayer.py is updated
+      - BronzeLayer.py  # Trigger workflow when BronzeLayer.py is updated
   workflow_dispatch: # Allow manual triggering
 
 jobs:
