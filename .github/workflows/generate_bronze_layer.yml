@@ -37,7 +37,7 @@ jobs:
         run: |
           python BronzeLayer.py
 
-      - name: Upload results to GitHub (optional)
+      - name: Commit and push updated data (optional)
         run: |
           git add BronzeLayer.csv
           git commit -m "Updated preprocessed data"
