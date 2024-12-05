@@ -29,7 +29,7 @@ jobs:
       # Step 4: Run the script
       - name: Run Bronze Layer script
         run: |
-          python bronzeLayer.py
+          python BronzeLayer.py
 
       # Step 5: Push the generated CSV file to the repository
       - name: Commit and Push BronzeLayer_data.csv
