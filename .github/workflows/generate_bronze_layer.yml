@@ -1,0 +1,41 @@
+name: Generate Bronze Layer Data
+
+on:
+  push:
+    paths:
+      - bronzeLayer.py  # Trigger workflow when bronzeLayer.py is updated
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Python environment
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
+
+      # Step 3: Install dependencies
+      - name: Install Python dependencies
+        run: |
+          pip install pandas numpy matplotlib seaborn
+
+      # Step 4: Run the script
+      - name: Run Bronze Layer script
+        run: |
+          python bronzeLayer.py
+
+      # Step 5: Push the generated CSV file to the repository
+      - name: Commit and Push BronzeLayer_data.csv
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add BronzeLayer_data.csv
+          git commit -m "Update BronzeLayer_data.csv [Automated]"
+          git push
