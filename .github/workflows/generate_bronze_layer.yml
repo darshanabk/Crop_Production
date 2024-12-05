@@ -3,19 +3,19 @@ name: Generate Bronze Layer Data
 on:
   push:
     paths:
-      - BronzeLayer.py  # Trigger workflow when BronzeLayer.py is updated
-  workflow_dispatch: # Allow manual triggering
+      - BronzeLayer.py
+  workflow_dispatch:
 
 jobs:
   run-script:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
-      # Step 1: Checkout the repository
+      # Step 1: Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Step 2: Set up Python environment
+      # Step 2: Set up Python
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -24,14 +24,21 @@ jobs:
       # Step 3: Install dependencies
       - name: Install Python dependencies
         run: |
-          pip install pandas numpy matplotlib seaborn
+          pip install pandas numpy matplotlib seaborn kaggle
 
-      # Step 4: Run the script
+      # Step 4: Configure Kaggle credentials
+      - name: Configure Kaggle credentials
+        run: |
+          mkdir -p ~/.kaggle
+          echo "${{ secrets.KAGGLE_KEY }}" > ~/.kaggle/kaggle.json
+          chmod 600 ~/.kaggle/kaggle.json
+
+      # Step 5: Run Bronze Layer script
       - name: Run Bronze Layer script
         run: |
           python BronzeLayer.py
 
-      # Step 5: Push the generated CSV file to the repository
+      # Step 6: Commit and Push BronzeLayer_data.csv
       - name: Commit and Push BronzeLayer_data.csv
         run: |
           git config --global user.name "github-actions[bot]"
