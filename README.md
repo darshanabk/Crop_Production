@@ -16,5 +16,8 @@ This project analyzes crop production data in India from 1997 to 2020. It includ
 
 ## Tools & Libraries
 - **Python:** For data analysis and visualization.
-- **Pandas:** For data manipulation.
-- **Matplotlib/Seaborn:** For charts and plots.
+- **Pandas:** For data manipulation and analysis.
+- **NumPy:** For numerical operations and array manipulation.
+- **Matplotlib/Seaborn:** For creating visualizations like charts and plots.
+- **Tableau:** For building interactive, live dashboards.
+- **shutil:** For file operations, such as moving or renaming files in the project.
