@@ -1,5 +1,4 @@
-# Crop Production - Live Dashboard
-[View the Crop Production Dashboard](https://public.tableau.com/app/profile/darshana.b8538/viz/CropProductionAnalysis_17334398919360/CropProductionDashboard)
+# Crop Production | [Live Dashboard](https://public.tableau.com/app/profile/darshana.b8538/viz/CropProductionAnalysis_17334398919360/CropProductionDashboard)
 
 ## Project Overview
 This project analyzes crop production data in India from 1997 to 2020. It includes patterns, trends, and insights on agricultural production across various states and crops.
